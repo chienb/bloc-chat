@@ -1,6 +1,5 @@
 (function() {
     function ModalFunction($scope, $uibModal, $log) {
-        $scope.items = ['item1', 'item2', 'item3'];
 
         $scope.animationsEnabled = true;
 
@@ -8,14 +7,10 @@
 
           var modalInstance = $uibModal.open({
             animation: $scope.animationsEnabled,
-            templateUrl: 'modal.html',
+            templateUrl: 'templates/modal.html',
             controller: 'ModalCtrl',
             size: size,
-            resolve: {
-              items: function () {
-                return $scope.items;
-              }
-            }
+
           });
 
           modalInstance.result.then(function (selectedItem) {
@@ -29,7 +24,7 @@
           $scope.animationsEnabled = !$scope.animationsEnabled;
         };
     }
-    
+
         angular
             .module('blocChat')
             .controller('ModalCtrl', ['$scope', '$uibModal', '$log', ModalFunction]);
