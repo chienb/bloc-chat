@@ -11,11 +11,18 @@
  		        url: '/',
  		        controller: 'ChatRoomCtrl as chatroom',
  		        templateUrl: '/templates/chatroom.html'
+ 		    })
+
+ 		$stateProvider
+ 		    .state('modal', {
+ 		        url: '/',
+ 		        controller: 'ModalCtrl as modal',
+ 		        templateUrl: '/templates/modal.html'
  		    });
     }
 
     angular
-        .module('blocChat', ['firebase','ui.router'])
+        .module('blocChat', ['firebase','ui.router', 'ui.bootstrap'])
         .config(config);
 })();
 

@@ -31,3 +31,7 @@ ul {
 .example-chat-messages li {
 	margin-left:-40px;
 }
+
+.navbar-nav li,h3 {
+  padding: 5px;
+}
