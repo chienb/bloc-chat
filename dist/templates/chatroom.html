@@ -1,6 +1,5 @@
 <div class="row">
 	<div class="col-sm-2">
-	  <!-- NAV Bar -->
 	  <div class="sidebar-nav">
 	    <div class="navbar navbar-default" role="navigation">
 	      <div class="navbar-header">
@@ -13,31 +12,34 @@
 	        <span class="visible-xs navbar-brand">Sidebar menu</span>
 	      </div>
 	      <div class="navbar-collapse collapse sidebar-navbar-collapse">
-	        <ul class="nav navbar-nav" ng-controller="ModalCtrl">
+	        <ul class="nav navbar-nav">
 	          <h3>Bloc Chat</h3>
-	          <button type="button" class="btn btn-default" ng-click="open('small')">Create New Room</button>
+	          <!-- Modal -->
+	          <div ng-controller="ModalCtrl">
+	          	<button type="button" class="create-btn" ng-click="open('small')">Create New Room</button>
+	          </div>
+	          <!-- End of Modal -->
 	          <li ng-repeat="room in rooms">{{room}}</li>
 	        </ul>
-	      </div><!--/.nav-collapse -->
+	      </div>
 	    </div>
 	  </div>
 	</div>
+	<!-- Chat Area -->
 	<div class="col-sm-10">
-	  <!-- CHAT MARKUP -->
-	  <div class="example-chat l-demo-container">
+	  <div class="chat-container">
 	    <div class="example-chat-toolbar">
 	      <label for="nameInput">Username:</label>
 	      <input ng-model="name" type="text" id="nameInput" placeholder="enter a username...">
 	    </div>
-
 	    <ul id="example-messages" class="example-chat-messages">
 	      <li ng-repeat="msg in messages">
-	        <strong class="example-chat-username">{{ msg.from }}</strong>
+	        {{ msg.from }}
 	        {{ msg.body }}
 	      </li>
 	    </ul>
 	    <footer>
-	      <input ng-model="msg" ng-keydown="addMessage($event)" type="text" id="messageInput"  placeholder="Type a message...">
+	      <input ng-model="newMessage" ng-click="sendMessage()" type="text" id="messageInput"  placeholder="Type a message...">
 	    </footer>
 	  </div>
 	</div>	

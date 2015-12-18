@@ -1,6 +1,6 @@
 (function() {
 	function Room($firebaseArray) {
-		var firebaseRef = new Firebase("https://ukh7gt3n3al.firebaseio-demo.com/");
+		var firebaseRef = new Firebase("https://glaring-inferno-3086.firebaseio.com/");
 		var rooms = $firebaseArray(firebaseRef.child('rooms'));
 		
 		return {
