@@ -8,7 +8,7 @@
           var modalInstance = $uibModal.open({
             animation: $scope.animationsEnabled,
             templateUrl: 'templates/modal.html',
-            controller: 'ModalCtrl',
+            controller: 'ModalInstanceCtrl',
             size: size,
 
           });

@@ -2,10 +2,10 @@
      <h3 class="modal-title">Create New Chatroom</h3>
  </div>
  <div class="modal-body">
-     <input type="text" placeholder="Chatroom name"> 
+     <input type="text" placeholder="Chatroom name" ng-model="newRoom"> 
 
  </div>
- <div class="modal-footer" ng-controller="ModalInstanceCtrl">
+ <div class="modal-footer">
      <button class="btn btn-primary" type="button" ng-click="add()">Add</button>
      <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
  </div>

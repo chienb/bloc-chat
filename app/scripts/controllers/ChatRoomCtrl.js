@@ -1,9 +1,7 @@
 (function() {
-	function ChatRoomCtrl($scope, $firebaseArray, Room) {
+	function ChatRoomCtrl($scope, $firebaseArray) {
 		var ref = new Firebase("https://ukh7gt3n3al.firebaseio-demo.com/");
 		$scope.messages = $firebaseArray(ref);
-
-		$scope.rooms = Room;
 
 		//ADD MESSAGE METHOD
         $scope.addMessage = function(e) {
@@ -20,6 +18,6 @@
 
     angular
         .module('blocChat')
-        .controller('ChatRoomCtrl', ['$scope', '$firebaseArray', 'Room', ChatRoomCtrl]);
+        .controller('ChatRoomCtrl', ['$scope', '$firebaseArray'	, ChatRoomCtrl]);
 })();
 

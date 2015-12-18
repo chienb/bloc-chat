@@ -1,15 +1,17 @@
 (function() {
-	function ViewRooms($firebaseArray) {
+	function Room($firebaseArray) {
 		var firebaseRef = new Firebase("https://ukh7gt3n3al.firebaseio-demo.com/");
 		var rooms = $firebaseArray(firebaseRef.child('rooms'));
-		var addRoom = function (roomName) {
-			rooms.$add(roomName);
-		};
 		
-		return rooms;
-    }
+		return {
+			rooms,
+			create:function(room){
+				rooms.$add(room)
+			}
+		};
+	}
 
     angular
         .module('blocChat')
-        .factory('Room', ['$firebaseArray', ViewRooms]);
+        .factory('Room', ['$firebaseArray', Room]);
 })();
