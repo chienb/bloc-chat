@@ -1,9 +1,10 @@
 (function() {
 	function HomeCtrl($scope, Room, Message) {
 		$scope.rooms=Room.all;
+		$scope.messages=Message.all;
 
 		$scope.sendMessage = function(){
-		  Message.create($scope.newMessage);
+		  Message.create($scope.name,$scope.newMessage,$scope.roomID);
 		  $scope.newMessage = "";
 		};
     }

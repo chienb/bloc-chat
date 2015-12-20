@@ -19,7 +19,9 @@
 	          	<button type="button" class="create-btn" ng-click="open('small')">Create New Room</button>
 	          </div>
 	          <!-- End of Modal -->
-	          <li ng-repeat="room in rooms">{{room}}</li>
+	          <li ng-repeat="room in rooms">
+	          	{{room.name}}
+	          </li>
 	        </ul>
 	      </div>
 	    </div>
@@ -34,12 +36,15 @@
 	    </div>
 	    <ul id="example-messages" class="example-chat-messages">
 	      <li ng-repeat="msg in messages">
-	        {{ msg.from }}
-	        {{ msg.body }}
+	        {{ msg.username }}:
+	        {{ msg.content }}
 	      </li>
 	    </ul>
 	    <footer>
-	      <input ng-model="newMessage" ng-click="sendMessage()" type="text" id="messageInput"  placeholder="Type a message...">
+	    	<form ng-submit="sendMessage()">
+	      		<input ng-model="newMessage" type="text" id="messageInput"  placeholder="Type a message...">
+	      		<input type="submit" />
+	      	</form>
 	    </footer>
 	  </div>
 	</div>	

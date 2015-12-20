@@ -4,9 +4,15 @@
 		var rooms = $firebaseArray(firebaseRef.child('rooms'));
 		
 		return {
-			rooms,
+			all: rooms,
 			create:function(room){
-				rooms.$add(room)
+				rooms.$add({
+					name: room
+				});
+			},
+			messages: function (roomID) {
+				var messagesArray= $firebase(ref.child('messages').orderByChild('roomId').equalTo(roomID));
+				return messagesArray;
 			}
 		};
 	}

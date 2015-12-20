@@ -4,7 +4,7 @@
 		var messages = $firebaseArray(firebaseRef.child('messages'));
 		
 		return {
-			messages,
+			all: messages,
 			create:function(name,newMessage,roomID){
 				messages.$add({
 					username: name,
