@@ -11,7 +11,7 @@
 				});
 			},
 			messages: function (roomID) {
-				var messagesArray= $firebase(ref.child('messages').orderByChild('roomId').equalTo(roomID));
+				var messagesArray= $firebaseArray(firebaseRef.child('messages').orderByChild('roomId').equalTo(roomID));
 				return messagesArray;
 			}
 		};
