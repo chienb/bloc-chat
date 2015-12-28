@@ -14,9 +14,22 @@
  		    });
     }
 
+    function run($cookies,$uibModal) {
+        if (!$cookies.blocChatCurrentUser || $cookies.blocChatCurrentUser === '' ) {
+            $uibModal.open({
+                  //animation: $scope.animationsEnabled,
+                  templateUrl: 'templates/usermodal.html',
+                  controller: 'UserModalInstanceCtrl',
+                  size: 'sm',
+            })    
+        }
+    }
+
     angular
-        .module('blocChat', ['firebase','ui.router', 'ui.bootstrap'])
-        .config(config);
+        .module('blocChat', ['firebase','ui.router', 'ui.bootstrap', 'ngCookies'])
+        .config(config)
+        .run(['$cookies','$uibModal', run]);
+
 })();
 
 

@@ -1,8 +1,8 @@
 (function() {
-	function HomeCtrl($scope, Room, Message) {
+	function HomeCtrl($scope, Room, Message, $cookies) {
 		$scope.rooms=Room.all;		
 		$scope.messages = Room.messages("");
-
+		$scope.name = $cookies.blocChatCurrentUser;
 
 		$scope.selectRoom = function(room) {
 			// find the $id of the passed in room variable and attach it to scope
@@ -13,24 +13,15 @@
 		};
 
 		$scope.sendMessage = function(){
+		  	
 		  	Message.create($scope.name,$scope.newMessage,$scope.roomID);
 		  	$scope.newMessage = "";
 
 		};
-
-		// $scope.sendMessage = function(){
-		//   if ($scope.messages=null) {
-		//   	Message.create($scope.name,$scope.newMessage,$scope.roomID);
-		//   	$scope.newMessage = "";
-		//   } else {
-		//   	alert("Please choose a chatroom from the menu on the left to start chatting.");
-		//   }
-
-		// };
     }
 
     angular
         .module('blocChat')
-        .controller('HomeCtrl', ['$scope', 'Room','Message', HomeCtrl]);
+        .controller('HomeCtrl', ['$scope', 'Room','Message', '$cookies',HomeCtrl]);
 })();
 
